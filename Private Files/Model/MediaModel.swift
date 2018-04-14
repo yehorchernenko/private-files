@@ -28,7 +28,7 @@ class MediaModel{
     
     private func requestData(){
         let fetchRequest: NSFetchRequest<Media> = Media.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         
         do{
             let medias = try moc.fetch(fetchRequest)
@@ -58,6 +58,8 @@ class MediaModel{
     
     
     private func saveAssetToDocDir(asset: DKAsset, date: Date,completion : @escaping (String) -> ()){
+        let documentsDirectory = URL.documentDirectory
+        let fileName = "\(date)\(arc4random())"
         
         if asset.isVideo{
             let options = PHVideoRequestOptions()
@@ -70,12 +72,11 @@ class MediaModel{
                         if let anUrl = url{
                             if let videoData = try? Data(contentsOf: anUrl){
                                 
-                                let documentsDirectory = URL.documentDirectory
-                                let fileURL = documentsDirectory.appendingPathComponent("\(date)").appendingPathExtension("mov")
+                                let fileURL = documentsDirectory.appendingPathComponent(fileName).appendingPathExtension("mov")
                                 
                                 try! videoData.write(to: fileURL)
                                 
-                                completion("\(date).mov")
+                                completion(fileName + ".mov")
                                 
                             }
                         }
@@ -94,11 +95,11 @@ class MediaModel{
                 PHImageManager.default().requestImage(for: iAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (image, info) in
                     
                     if let imageData = UIImageJPEGRepresentation(image!, 1.0){
-                        let documentsDirectory = URL.documentDirectory
-                        let fileURL = documentsDirectory.appendingPathComponent("\(date)").appendingPathExtension("jpeg")
+                        
+                        let fileURL = documentsDirectory.appendingPathComponent(fileName).appendingPathExtension("jpeg")
                         try! imageData.write(to: fileURL)
                         
-                        completion("\(date).jpeg")
+                        completion(fileName + ".jpeg")
                         
                     }
                 })

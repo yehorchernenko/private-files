@@ -17,7 +17,9 @@ class MediaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var previewImageView: UIImageView!
     
     func configureCell(withMedia media: MediaItem){
-        self.previewImageView.image = media.previewImage
+        media.getPreviewImage { [weak self] image in
+            self?.previewImageView.image = image
+        }
         
         self.playImageView.isHidden = media.assetType == AssetType.video.rawValue ? false : true
     }
