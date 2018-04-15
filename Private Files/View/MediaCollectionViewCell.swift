@@ -13,14 +13,21 @@ class MediaCollectionViewCell: UICollectionViewCell {
     class var identifier: String {
         return String(describing: self)
     }
+    
     @IBOutlet weak var playImageView: UIImageView!
     @IBOutlet weak var previewImageView: UIImageView!
     
+    var media: MediaItem?
+    
+    
     func configureCell(withMedia media: MediaItem){
-        media.getPreviewImage { [weak self] image in
+        /*media.getPreviewImage { [weak self] image in
             self?.previewImageView.image = image
-        }
-        
+        }*/
+        self.media = media
         self.playImageView.isHidden = media.assetType == AssetType.video.rawValue ? false : true
+    }
+    
+    func playVideoIfPossible(withMedia media: MediaItem){
     }
 }

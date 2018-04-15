@@ -9,6 +9,6 @@
 import Foundation
 
 protocol MediaModelDelegate: class {
-    func didRecieve(medias: [Media])
+    func didRecieve(media: [Media])
     func didFailWithError(error: Error)
 }

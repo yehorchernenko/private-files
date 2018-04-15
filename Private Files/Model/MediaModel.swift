@@ -12,6 +12,7 @@ import UIKit
 import DKImagePickerController
 import Photos
 
+
 class MediaModel{
     
     private var moc: NSManagedObjectContext{
@@ -31,8 +32,8 @@ class MediaModel{
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         
         do{
-            let medias = try moc.fetch(fetchRequest)
-            self.delegate?.didRecieve(medias: medias)
+            let media = try moc.fetch(fetchRequest)
+            self.delegate?.didRecieve(media: media)
         } catch {
             self.delegate?.didFailWithError(error: error)
         }
@@ -58,56 +59,65 @@ class MediaModel{
     
     
     private func saveAssetToDocDir(asset: DKAsset, date: Date,completion : @escaping (String) -> ()){
-        let documentsDirectory = URL.documentDirectory
-        let fileName = "\(date)\(arc4random())"
         
-        if asset.isVideo{
-            let options = PHVideoRequestOptions()
-            options.version = .original
+        DispatchQueue.global(qos: .userInitiated).async {
+            let documentsDirectory = URL.documentDirectory
+            let fileName = "\(date)\(arc4random())"
             
-            if let phAsset = asset.originalAsset{
-                PHImageManager.default().requestAVAsset(forVideo: phAsset, options: options, resultHandler: { (vAsset, audioMix, info) in
-                    if vAsset is AVURLAsset{
-                        let url = (vAsset as? AVURLAsset)?.url
-                        if let anUrl = url{
-                            if let videoData = try? Data(contentsOf: anUrl){
-                                
-                                let fileURL = documentsDirectory.appendingPathComponent(fileName).appendingPathExtension("mov")
-                                
-                                try! videoData.write(to: fileURL)
-                                
-                                completion(fileName + ".mov")
-                                
+            if asset.isVideo{
+                let options = PHVideoRequestOptions()
+                options.version = .original
+                
+                if let phAsset = asset.originalAsset{
+                    PHImageManager.default().requestAVAsset(forVideo: phAsset, options: options, resultHandler: { (vAsset, audioMix, info) in
+                        if vAsset is AVURLAsset{
+                            let url = (vAsset as? AVURLAsset)?.url
+                            if let anUrl = url{
+                                if let videoData = try? Data(contentsOf: anUrl){
+                                    
+                                    let fileURL = documentsDirectory.appendingPathComponent(fileName).appendingPathExtension("mov")
+                                    
+                                    try! videoData.write(to: fileURL)
+                                    
+                                    DispatchQueue.main.async {
+                                        completion(fileName + ".mov")
+                                    }
+                                    
+                                    
+                                }
                             }
                         }
-                    }
-                    
-                })
-            }
-            
-        } else {
-            let options = PHImageRequestOptions()
-            options.resizeMode = .exact
-            options.deliveryMode = .highQualityFormat
-            options.isSynchronous = true
-            
-            if let iAsset = asset.originalAsset{
-                PHImageManager.default().requestImage(for: iAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (image, info) in
-                    
-                    if let imageData = UIImageJPEGRepresentation(image!, 1.0){
                         
-                        let fileURL = documentsDirectory.appendingPathComponent(fileName).appendingPathExtension("jpeg")
-                        try! imageData.write(to: fileURL)
+                    })
+                }
+                
+            } else {
+                let options = PHImageRequestOptions()
+                options.resizeMode = .exact
+                options.deliveryMode = .highQualityFormat
+                options.isSynchronous = true
+                
+                if let iAsset = asset.originalAsset{
+                    PHImageManager.default().requestImage(for: iAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (image, info) in
                         
-                        completion(fileName + ".jpeg")
-                        
-                    }
-                })
+                        if let imageData = UIImageJPEGRepresentation(image!, 1.0){
+                            
+                            let fileURL = documentsDirectory.appendingPathComponent(fileName).appendingPathExtension("jpeg")
+                            try! imageData.write(to: fileURL)
+                            
+                            DispatchQueue.main.async {
+                                completion(fileName + ".jpeg")
+                            }
+                            
+                        }
+                    })
+                }
+                
             }
             
         }
+        }
         
-    }
 }
 
 enum AssetType: String {

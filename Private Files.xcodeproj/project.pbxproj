@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1A6053F480FEF2497097B732 /* Pods_Private_Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F95261202A1249B5CA5D9D72 /* Pods_Private_Files.framework */; };
+		742515A0208335C6001434E0 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425159F208335C6001434E0 /* Cache.swift */; };
 		7437A8E62082780400650E1C /* URL + doc dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437A8E52082780400650E1C /* URL + doc dir.swift */; };
+		7437A8E82082931C00650E1C /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437A8E72082931C00650E1C /* DetailMediaViewController.swift */; };
+		7437A8EA208295B400650E1C /* DetailMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437A8E9208295B400650E1C /* DetailMediaCollectionViewCell.swift */; };
 		7457AF512081EE5B00D93EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457AF502081EE5B00D93EFB /* AppDelegate.swift */; };
 		7457AF562081EE5B00D93EFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7457AF542081EE5B00D93EFB /* Main.storyboard */; };
 		7457AF592081EE5B00D93EFB /* Private_Files.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7457AF572081EE5B00D93EFB /* Private_Files.xcdatamodeld */; };
@@ -24,7 +27,10 @@
 
 /* Begin PBXFileReference section */
 		485D506A5984A4D7D5FC16C1 /* Pods-Private Files.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Private Files.release.xcconfig"; path = "Pods/Target Support Files/Pods-Private Files/Pods-Private Files.release.xcconfig"; sourceTree = "<group>"; };
+		7425159F208335C6001434E0 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		7437A8E52082780400650E1C /* URL + doc dir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + doc dir.swift"; sourceTree = "<group>"; };
+		7437A8E72082931C00650E1C /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
+		7437A8E9208295B400650E1C /* DetailMediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		7457AF4D2081EE5B00D93EFB /* Private Files.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Private Files.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7457AF502081EE5B00D93EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7457AF552081EE5B00D93EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				7437A8E52082780400650E1C /* URL + doc dir.swift */,
+				7425159F208335C6001434E0 /* Cache.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				7457AF672081F15A00D93EFB /* MediaViewController.swift */,
+				7437A8E72082931C00650E1C /* DetailMediaViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				7457AF692081F23500D93EFB /* MediaCollectionViewCell.swift */,
+				7437A8E9208295B400650E1C /* DetailMediaCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,9 +280,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7457AF512081EE5B00D93EFB /* AppDelegate.swift in Sources */,
+				7437A8EA208295B400650E1C /* DetailMediaCollectionViewCell.swift in Sources */,
 				7457AF682081F15A00D93EFB /* MediaViewController.swift in Sources */,
 				7457AF732081F76200D93EFB /* Media.swift in Sources */,
 				7457AF592081EE5B00D93EFB /* Private_Files.xcdatamodeld in Sources */,
+				7437A8E82082931C00650E1C /* DetailMediaViewController.swift in Sources */,
+				742515A0208335C6001434E0 /* Cache.swift in Sources */,
 				7457AF6F2081F40F00D93EFB /* MediaModel.swift in Sources */,
 				7437A8E62082780400650E1C /* URL + doc dir.swift in Sources */,
 				7457AF712081F6E500D93EFB /* NSManagedObjectContext + CoreData.swift in Sources */,

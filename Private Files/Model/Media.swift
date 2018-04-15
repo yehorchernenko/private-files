@@ -56,4 +56,5 @@ extension Media: MediaItem{
 protocol MediaItem {
     func getPreviewImage(completion: @escaping (UIImage?) -> ())
     var assetType: String? {get}
+    var urlStr: String? {get}
 }
