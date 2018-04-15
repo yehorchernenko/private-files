@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import AVKit
 
-class DetailMediaViewController: UIViewController {
+class DetailMediaViewController: UIViewController{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -18,10 +18,19 @@ class DetailMediaViewController: UIViewController {
         return String(describing: self)
     }
     var media = [Media]()
-    var scrollToIndexPath = IndexPath(row: 0, section: 0)
+    var scrollToIndexPath: IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let indexPath = self.scrollToIndexPath{
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            self.scrollToIndexPath = nil
+            
+        }
     }
     
     

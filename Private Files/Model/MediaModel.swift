@@ -53,7 +53,11 @@ class MediaModel{
             
         }
         
-        requestData()
+        //call before data stored so use this crutch☹️
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + Double(assets.count)) {
+            self.requestData()
+        }
+        
         
     }
     
