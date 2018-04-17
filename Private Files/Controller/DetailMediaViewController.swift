@@ -62,7 +62,7 @@ class DetailMediaViewController: UIViewController{
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
-
+        
     }
     
 }
@@ -114,10 +114,20 @@ extension DetailMediaViewController: UICollectionViewDelegate, UICollectionViewD
             
         }
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let cell = collectionView.visibleCells[collectionView.visibleCells.count/2]
+        let indexPath = collectionView.indexPath(for: cell)
+        NotificationCenter.default.post(name: .cellDidChange, object: nil, userInfo: ["indexPath" : indexPath])
+    }
 }
 
 extension DetailMediaViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.collectionView.bounds.size
     }
+}
+
+extension DetailMediaViewController: UIViewControllerTransitioningDelegate{
+    
 }

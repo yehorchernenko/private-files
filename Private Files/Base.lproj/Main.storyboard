@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="bum-k9-a1r">
             <objects>
                 <viewController id="o8G-9r-6p1" sceneMemberID="viewController">
@@ -21,7 +21,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sd5-A4-74z"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Hz2-Tv-i49"/>
+                    <tabBarItem key="tabBarItem" title="" image="to-do-list" id="Hz2-Tv-i49"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hS-FA-shJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,7 +103,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="gb8-oG-ThP" id="3Ab-Y0-UOF"/>
-                        <segue destination="NeT-om-isZ" kind="show" identifier="DetailMediaViewController" id="wEH-gZ-IyW"/>
+                        <segue destination="NeT-om-isZ" kind="show" identifier="DetailMediaViewController" id="fXE-1G-6UC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otd-hv-npk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,7 +113,7 @@
         <!--Detail Media View Controller-->
         <scene sceneID="ch0-7o-Wpw">
             <objects>
-                <viewController id="NeT-om-isZ" customClass="DetailMediaViewController" customModule="Private_Files" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailMediaViewController" id="NeT-om-isZ" customClass="DetailMediaViewController" customModule="Private_Files" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SrW-px-BEd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,16 +135,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="351" height="550"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-DC-ush">
-                                                    <rect key="frame" x="0.0" y="0.0" width="351" height="550"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </imageView>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play-button" translatesAutoresizingMaskIntoConstraints="NO" id="ON6-aJ-tBV">
                                                     <rect key="frame" x="150.5" y="250" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="9ES-wB-rlj"/>
                                                         <constraint firstAttribute="height" constant="50" id="zbe-HP-QR7"/>
                                                     </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-DC-ush">
+                                                    <rect key="frame" x="0.0" y="0.0" width="351" height="550"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -217,11 +217,11 @@
             </objects>
             <point key="canvasLocation" x="-226" y="-282"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="JQ8-Xf-hLa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gLv-CB-cxp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="1OA-kN-auv"/>
+                    <tabBarItem key="tabBarItem" title="" image="gallery" id="1OA-kN-auv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAh-n4-Q7M">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -238,6 +238,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gallery" width="32" height="32"/>
         <image name="play-button" width="64" height="64"/>
+        <image name="to-do-list" width="32" height="32"/>
     </resources>
 </document>
