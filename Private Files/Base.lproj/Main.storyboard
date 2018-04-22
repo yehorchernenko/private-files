@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sk2-0l-hhH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RfF-fd-jfS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -235,6 +235,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52v-f3-468" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="726.39999999999998" y="-617.09145427286364"/>
+        </scene>
+        <!--Enter View Controller-->
+        <scene sceneID="e3g-AD-5aN">
+            <objects>
+                <viewController storyboardIdentifier="EnterViewController" id="RfF-fd-jfS" customClass="EnterViewController" customModule="Private_Files" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qBE-U3-IC5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-hS-ion">
+                                <rect key="frame" x="20" y="146" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RfF-fd-jfS" id="crM-pj-RD3"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krr-ha-59M">
+                                <rect key="frame" x="20" y="201" width="335" height="30"/>
+                                <state key="normal" title="Apply"/>
+                                <connections>
+                                    <action selector="appleButtonPressed:" destination="RfF-fd-jfS" eventType="touchUpInside" id="QOd-jL-Zne"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter password to protect your data." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJl-5Q-H7c">
+                                <rect key="frame" x="20" y="100" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mFb-Hd-coy" firstAttribute="trailing" secondItem="lJl-5Q-H7c" secondAttribute="trailing" constant="20" id="0Ka-2Z-JjA"/>
+                            <constraint firstItem="Psp-hS-ion" firstAttribute="top" secondItem="lJl-5Q-H7c" secondAttribute="bottom" constant="25" id="Cmi-Y9-rJs"/>
+                            <constraint firstItem="mFb-Hd-coy" firstAttribute="trailing" secondItem="Psp-hS-ion" secondAttribute="trailing" constant="20" id="McV-Zp-aJ8"/>
+                            <constraint firstItem="lJl-5Q-H7c" firstAttribute="leading" secondItem="mFb-Hd-coy" secondAttribute="leading" constant="20" id="W1e-NS-9Fu"/>
+                            <constraint firstItem="mFb-Hd-coy" firstAttribute="trailing" secondItem="krr-ha-59M" secondAttribute="trailing" constant="20" id="m6u-2z-tWC"/>
+                            <constraint firstItem="krr-ha-59M" firstAttribute="top" secondItem="Psp-hS-ion" secondAttribute="bottom" constant="25" id="nz1-iS-q2a"/>
+                            <constraint firstItem="lJl-5Q-H7c" firstAttribute="top" secondItem="mFb-Hd-coy" secondAttribute="top" constant="80" id="rW4-eV-xzY"/>
+                            <constraint firstItem="Psp-hS-ion" firstAttribute="leading" secondItem="mFb-Hd-coy" secondAttribute="leading" constant="20" id="rsZ-1C-JJO"/>
+                            <constraint firstItem="krr-ha-59M" firstAttribute="leading" secondItem="mFb-Hd-coy" secondAttribute="leading" constant="20" id="xJb-xr-rTG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mFb-Hd-coy"/>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="Psp-hS-ion" id="RPN-yK-Woi"/>
+                        <outlet property="titleLabel" destination="lJl-5Q-H7c" id="5dh-DM-wuW"/>
+                        <segue destination="sk2-0l-hhH" kind="show" identifier="EnterViewController" id="T5X-lZ-hrT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxX-63-HfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1177" y="-282"/>
         </scene>
     </scenes>
     <resources>
