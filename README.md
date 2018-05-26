@@ -12,3 +12,10 @@ Media files stored in Document Directory and link for it stored in Core Data Asy
 ![img_1622](https://user-images.githubusercontent.com/23559375/40573591-45ff946e-60cc-11e8-9c4c-8baaf7425ecc.PNG)
 ![img_1623](https://user-images.githubusercontent.com/23559375/40573592-46259a9c-60cc-11e8-9df1-8a9280f33602.PNG)
 ![img_1624](https://user-images.githubusercontent.com/23559375/40573593-464d1180-60cc-11e8-8a56-852bd4a1b625.PNG)
+
+
+### Contacts
+* Telegram - https://t.me/egor_chernenko  
+* Email - lordo916@gmail.com 
+
+-----
