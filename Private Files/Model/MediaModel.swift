@@ -21,6 +21,8 @@ class MediaModel{
     
     weak var delegate: MediaModelDelegate?
     
+    let dispatchGroup = DispatchGroup()
+    
     init(delegate: MediaModelDelegate) {
         self.delegate = delegate
         
@@ -45,20 +47,19 @@ class MediaModel{
             let newMedia = Media(context: self.moc)
             newMedia.date = date
             
+            dispatchGroup.enter()
             saveAssetToDocDir(asset: asset, date: date, completion: { [weak self] urlStr in
                 newMedia.assetType = asset.isVideo ? AssetType.video.rawValue : AssetType.photo.rawValue
                 newMedia.urlStr = urlStr
                 try? self?.moc.save()
+                self?.dispatchGroup.leave()
             })
             
         }
         
-        //call before data stored so use this crutch☹️
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + Double(assets.count)) {
-            self.requestData()
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.requestData()
         }
-        
-        
     }
     
     
