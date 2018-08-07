@@ -41,6 +41,16 @@ class MediaModel{
         }
     }
     
+    func delete(media: Media){
+        moc.delete(media)
+        do {
+            try moc.save()
+        } catch {
+            debugPrint("Enable to save after deleting")
+        }
+        requestData()
+    }
+    
     func add(mediaAssets assets: [DKAsset]){
         for asset in assets{
             let date = Date()

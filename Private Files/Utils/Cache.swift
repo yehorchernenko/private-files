@@ -9,10 +9,11 @@
 import UIKit
 
 class Cache{
-    private init(){}
+    private init(){
+        imageCache.totalCostLimit = 100_000_000
+    }
     
     static let shared = Cache()
     var imageCache = NSCache<NSString, UIImage>()
+    
 }
-
-

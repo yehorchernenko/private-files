@@ -17,8 +17,11 @@ class DetailMediaViewController: UIViewController{
     class var segueIdentifier: String {
         return String(describing: self)
     }
-    var media = [Media]()
+    
+    var mediaModel: MediaModel?
+    var media: [Media] = []
     var scrollToIndexPath: IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.reloadData()
@@ -62,7 +65,20 @@ class DetailMediaViewController: UIViewController{
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
-        
+        let alertScreen = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete media", style: .destructive) { [weak self] action in
+            guard let strongSelf = self else { return }
+            guard let visibleCell = strongSelf.collectionView.visibleCells.first else { return }
+            guard let indexPath = strongSelf.collectionView.indexPath(for: visibleCell) else { return }
+            
+            strongSelf.mediaModel?.delete(media: strongSelf.media[indexPath.item])
+            strongSelf.media.remove(at: indexPath.item)
+            strongSelf.collectionView.deleteItems(at: [indexPath])
+        }
+        alertScreen.addAction(cancelAction)
+        alertScreen.addAction(deleteAction)
+        present(alertScreen, animated: true, completion: nil)
     }
     
 }
@@ -90,8 +106,7 @@ extension DetailMediaViewController: UICollectionViewDelegate, UICollectionViewD
             }
         }
         
-        cell.motionIdentifier = "photo_\(indexPath.item)"
-        cell.configureCell(withMedia: mediaItem)
+        cell.configureCell(withMedia: mediaItem, motionId: "photo_\(indexPath.item)")
         
         return cell
     }
@@ -104,17 +119,29 @@ extension DetailMediaViewController: UICollectionViewDelegate, UICollectionViewD
                 let videoController = AVPlayerViewController()
                 videoController.player = videoPlayer
                 
+                videoController.modalPresentationStyle = .overCurrentContext
+                videoController.modalTransitionStyle = .crossDissolve
                 self.present(videoController, animated: true, completion: {
                     videoPlayer.play()
                 })
             }
         } else {
-            self.navigationController!.navigationBar.isHidden = !self.navigationController!.navigationBar.isHidden
-            self.tabBarController!.tabBar.isHidden = !self.tabBarController!.tabBar.isHidden
-            self.view.backgroundColor = self.view.backgroundColor == .white ? .black : .white
-            
+            navigationController!.navigationBar.isHidden = !navigationController!.navigationBar.isHidden
+            view.backgroundColor = view.backgroundColor == .white ? .black : .white
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let date = self.media[indexPath.item].date else { return }
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MMM d, yyyy, hh:mm a"
+        dateFormater.amSymbol = "AM"
+        dateFormater.pmSymbol = "PM"
+        navigationItem.title = dateFormater.string(from: date)
+        
+    }
+    
 }
 
 extension DetailMediaViewController: UICollectionViewDelegateFlowLayout{

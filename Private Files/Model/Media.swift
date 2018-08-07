@@ -42,15 +42,9 @@ extension Media: MediaItem{
                 DispatchQueue.main.async {
                     completion(image)
                 }
-            
             }
         }
-
-    
     }
-    
-    
-    
 }
 
 protocol MediaItem {

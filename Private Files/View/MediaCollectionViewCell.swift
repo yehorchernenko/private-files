@@ -20,12 +20,13 @@ class MediaCollectionViewCell: UICollectionViewCell {
     var media: MediaItem?
     
     
-    func configureCell(withMedia media: MediaItem){
+    func configureCell(withMedia media: MediaItem, motionId: String){
         /*media.getPreviewImage { [weak self] image in
             self?.previewImageView.image = image
         }*/
         self.media = media
-        self.playImageView.isHidden = media.assetType != AssetType.video.rawValue
+        playImageView.isHidden = media.assetType != AssetType.video.rawValue
+        motionIdentifier = motionId
         transition(.fadeOut, .scale(0.75))
     }
     

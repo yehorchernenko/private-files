@@ -76,8 +76,7 @@ extension MediaViewController: UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
         
-        cell.previewImageView.motionIdentifier = "photo_\(indexPath.item)"
-        cell.configureCell(withMedia: self.media[indexPath.item])
+        cell.configureCell(withMedia: self.media[indexPath.item], motionId: "photo_\(indexPath.item)")
         return cell
     }
     
@@ -85,7 +84,7 @@ extension MediaViewController: UICollectionViewDelegate, UICollectionViewDataSou
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailMediaViewController") as? DetailMediaViewController else { return }
         detailVC.media = self.media
         detailVC.scrollToIndexPath = indexPath
-        
+        detailVC.mediaModel = mediaModel
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
