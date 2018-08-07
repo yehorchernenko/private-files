@@ -90,6 +90,7 @@ extension DetailMediaViewController: UICollectionViewDelegate, UICollectionViewD
             }
         }
         
+        cell.motionIdentifier = "photo_\(indexPath.item)"
         cell.configureCell(withMedia: mediaItem)
         
         return cell
@@ -114,20 +115,10 @@ extension DetailMediaViewController: UICollectionViewDelegate, UICollectionViewD
             
         }
     }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let cell = collectionView.visibleCells[collectionView.visibleCells.count/2]
-        let indexPath = collectionView.indexPath(for: cell)
-        NotificationCenter.default.post(name: .cellDidChange, object: nil, userInfo: ["indexPath" : indexPath])
-    }
 }
 
 extension DetailMediaViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.collectionView.bounds.size
     }
-}
-
-extension DetailMediaViewController: UIViewControllerTransitioningDelegate{
-    
 }

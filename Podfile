@@ -6,7 +6,8 @@ project 'Private Files.xcodeproj'
 target 'Private Files' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'DKImagePickerController'
+	pod 'DKImagePickerController'
+	pod 'Material'
   # Pods for Private Files
 
 end

@@ -8,7 +8,7 @@
 
 import UIKit
 import DKImagePickerController
-
+import Material
 
 class MediaViewController: UIViewController {
     
@@ -19,16 +19,13 @@ class MediaViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-    var imageFrame: CGRect?
-    var selectedImage: UIImageView?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(cellDidChangedInAnotherController(notification:)), name: .cellDidChange, object: nil)
-        self.navigationController?.delegate = self
         mediaModel = MediaModel(delegate: self)
+        
+        navigationController?.isMotionEnabled = true
+        navigationController?.motionNavigationTransitionType = .autoReverse(presenting: .none)
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -39,20 +36,6 @@ class MediaViewController: UIViewController {
         }
         
         self.present(pickerController, animated: true) {}
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? DetailMediaViewController{
-            vc.media = self.media
-            vc.scrollToIndexPath = sender as? IndexPath
-            
-        }
-    }
-    
-    @objc func cellDidChangedInAnotherController(notification: Notification){
-        guard let indexPath = notification.userInfo!["indexPath"] as? IndexPath else { return }
-        self.selectedImage = (collectionView.cellForItem(at: indexPath) as! MediaCollectionViewCell).previewImageView
-        self.imageFrame = self.selectedImage!.superview!.convert(selectedImage!.frame, to: nil)
     }
 }
 
@@ -93,32 +76,17 @@ extension MediaViewController: UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
         
-        
+        cell.previewImageView.motionIdentifier = "photo_\(indexPath.item)"
         cell.configureCell(withMedia: self.media[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedImage = (collectionView.cellForItem(at: indexPath) as! MediaCollectionViewCell).previewImageView
-        self.imageFrame = self.selectedImage!.superview!.convert(selectedImage!.frame, to: nil)
-        performSegue(withIdentifier: DetailMediaViewController.segueIdentifier, sender: indexPath)
-
-    }
-}
-
-extension MediaViewController: UINavigationControllerDelegate{
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?{
-
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailMediaViewController") as? DetailMediaViewController else { return }
+        detailVC.media = self.media
+        detailVC.scrollToIndexPath = indexPath
         
-        
-        guard let originFrame = self.imageFrame else { return nil }
-        switch operation {
-        case .push:
-            return PushAnimator(duration: 0.3, presenting: true, originFrame: originFrame)
-        default:
-            return PushAnimator(duration: 0.3, presenting: false, originFrame: originFrame)
-        }
-        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A6053F480FEF2497097B732 /* Pods_Private_Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F95261202A1249B5CA5D9D72 /* Pods_Private_Files.framework */; };
 		742515A0208335C6001434E0 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425159F208335C6001434E0 /* Cache.swift */; };
-		74350C9D2084F04C004614D9 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350C9C2084F04C004614D9 /* PushAnimator.swift */; };
 		7437A8E62082780400650E1C /* URL + doc dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437A8E52082780400650E1C /* URL + doc dir.swift */; };
 		7437A8E82082931C00650E1C /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437A8E72082931C00650E1C /* DetailMediaViewController.swift */; };
 		7457AF512081EE5B00D93EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457AF502081EE5B00D93EFB /* AppDelegate.swift */; };
@@ -23,14 +22,12 @@
 		7457AF712081F6E500D93EFB /* NSManagedObjectContext + CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457AF702081F6E500D93EFB /* NSManagedObjectContext + CoreData.swift */; };
 		7457AF732081F76200D93EFB /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457AF722081F76200D93EFB /* Media.swift */; };
 		7457AF752082493D00D93EFB /* MediaModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457AF742082493D00D93EFB /* MediaModelDelegate.swift */; };
-		74CD2A002085E0B700F1C029 /* Notification+ name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CD29FF2085E0B700F1C029 /* Notification+ name.swift */; };
 		74EE99B2208CD4AA000F2A25 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE99B1208CD4AA000F2A25 /* EnterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		485D506A5984A4D7D5FC16C1 /* Pods-Private Files.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Private Files.release.xcconfig"; path = "Pods/Target Support Files/Pods-Private Files/Pods-Private Files.release.xcconfig"; sourceTree = "<group>"; };
 		7425159F208335C6001434E0 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		74350C9C2084F04C004614D9 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
 		7437A8E52082780400650E1C /* URL + doc dir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + doc dir.swift"; sourceTree = "<group>"; };
 		7437A8E72082931C00650E1C /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		7457AF4D2081EE5B00D93EFB /* Private Files.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Private Files.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +43,6 @@
 		7457AF702081F6E500D93EFB /* NSManagedObjectContext + CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext + CoreData.swift"; sourceTree = "<group>"; };
 		7457AF722081F76200D93EFB /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		7457AF742082493D00D93EFB /* MediaModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelDelegate.swift; sourceTree = "<group>"; };
-		74CD29FF2085E0B700F1C029 /* Notification+ name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+ name.swift"; sourceTree = "<group>"; };
 		74EE99B1208CD4AA000F2A25 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		E8CFA24562B9A6759C8A94FC /* Pods-Private Files.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Private Files.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Private Files/Pods-Private Files.debug.xcconfig"; sourceTree = "<group>"; };
 		F95261202A1249B5CA5D9D72 /* Pods_Private_Files.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Private_Files.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,9 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				7437A8E52082780400650E1C /* URL + doc dir.swift */,
-				74350C9C2084F04C004614D9 /* PushAnimator.swift */,
 				7425159F208335C6001434E0 /* Cache.swift */,
-				74CD29FF2085E0B700F1C029 /* Notification+ name.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -168,7 +162,6 @@
 				7457AF4A2081EE5B00D93EFB /* Frameworks */,
 				7457AF4B2081EE5B00D93EFB /* Resources */,
 				36C846D0ABFF64CB22A36250 /* [CP] Embed Pods Frameworks */,
-				5B7BA551E0F1D528F5B36188 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,29 +228,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Private Files/Pods-Private Files-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Private Files/Pods-Private Files-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B7BA551E0F1D528F5B36188 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Private Files/Pods-Private Files-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B297818E1B4E5AEE1564BE96 /* [CP] Check Pods Manifest.lock */ = {
@@ -291,13 +273,11 @@
 				7457AF592081EE5B00D93EFB /* Private_Files.xcdatamodeld in Sources */,
 				7437A8E82082931C00650E1C /* DetailMediaViewController.swift in Sources */,
 				742515A0208335C6001434E0 /* Cache.swift in Sources */,
-				74CD2A002085E0B700F1C029 /* Notification+ name.swift in Sources */,
 				7457AF6F2081F40F00D93EFB /* MediaModel.swift in Sources */,
 				7437A8E62082780400650E1C /* URL + doc dir.swift in Sources */,
 				7457AF712081F6E500D93EFB /* NSManagedObjectContext + CoreData.swift in Sources */,
 				74EE99B2208CD4AA000F2A25 /* EnterViewController.swift in Sources */,
 				7457AF6A2081F23500D93EFB /* MediaCollectionViewCell.swift in Sources */,
-				74350C9D2084F04C004614D9 /* PushAnimator.swift in Sources */,
 				7457AF752082493D00D93EFB /* MediaModelDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

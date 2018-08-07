@@ -4,13 +4,29 @@ PODS:
     - DKImagePickerController/ImageManager (= 3.8.1)
   - DKImagePickerController/Camera (3.8.1)
   - DKImagePickerController/ImageManager (3.8.1)
+  - Material (2.16.4):
+    - Material/Core (= 2.16.4)
+  - Material/Core (2.16.4):
+    - Motion (~> 1.4.3)
+  - Motion (1.4.3):
+    - Motion/Core (= 1.4.3)
+  - Motion/Core (1.4.3)
 
 DEPENDENCIES:
   - DKImagePickerController
+  - Material
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DKImagePickerController
+    - Material
+    - Motion
 
 SPEC CHECKSUMS:
   DKImagePickerController: 51ad6ee2ba05414bb741db54a72cd7f4fb178e34
+  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
+  Motion: 153ba49692997888556c7a95207278a8b1f8be95
 
-PODFILE CHECKSUM: 311b5f8dc5fe4721d349bc74fbd8bb5b73d5cc4b
+PODFILE CHECKSUM: 9b49dd2d33be7d223ccf8e0a493634c322608e0f
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

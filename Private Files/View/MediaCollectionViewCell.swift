@@ -25,7 +25,8 @@ class MediaCollectionViewCell: UICollectionViewCell {
             self?.previewImageView.image = image
         }*/
         self.media = media
-        self.playImageView.isHidden = media.assetType == AssetType.video.rawValue ? false : true
+        self.playImageView.isHidden = media.assetType != AssetType.video.rawValue
+        transition(.fadeOut, .scale(0.75))
     }
     
     func playVideoIfPossible(withMedia media: MediaItem){
